@@ -9,23 +9,24 @@ const Player = () => {
       <div className="row h-100">
         <div className="col-lg-10 offset-lg-2">
           <div className="row h-100 flex-column justify-content-center align-items-center">
-            <div className="col-6 col-md-4 playerControls">
+            <div className="col-6 playerControls">
               {selectedSong ? (
-                <div className="d-flex flex-column align-items-center">
+                <div className="d-flex align-items-center">
                   <img
-                    src={selectedSong.album.cover_medium}
+                    src={selectedSong.album.cover_small}
                     alt="track"
-                    className="img-fluid mb-2"
+                    className="img-fluid mb-2 "
                   />
-                  <p>
-                    Track: "{selectedSong.title}"<br />
+                  <p className="text-light ">
+                    Album: "{selectedSong.album.title}"<br />
                     Artist: {selectedSong.artist.name}
                   </p>
                 </div>
               ) : (
                 <p>Seleziona una canzone per ascoltarla</p>
               )}
-              <div className="d-flex">
+
+              <div className="d-flex ">
                 <a href="#">
                   <img src="../shuffle.png" alt="shuffle" />
                 </a>

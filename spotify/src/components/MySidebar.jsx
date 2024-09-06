@@ -1,3 +1,5 @@
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 const MySidebar = () => {
   return (
     <aside className="col col-2">
@@ -22,13 +24,13 @@ const MySidebar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <ul>
+              <ul className="pl-0">
                 <li>
                   <a
                     className="nav-item nav-link d-flex align-items-center"
                     href="#"
                   >
-                    <i className="bi bi-house-door-fill"></i>  Home
+                    <i className="bi bi-house-door-fill "></i>  Home
                   </a>
                 </li>
                 <li>
@@ -59,13 +61,16 @@ const MySidebar = () => {
           </div>
         </div>
         <div className="nav-btn">
-          <button className="btn signup-btn" type="button">
+          <button className="btn signup-btn bg-light rounded-5" type="button">
             Sign Up
           </button>
-          <button className="btn login-btn" type="button">
+          <button
+            className="btn login-btn border-light text-light rounded-5"
+            type="button"
+          >
             Login
           </button>
-          <a href="#">Cookie Policy</a> |<a href="#"> Privacy</a>
+          <p className="text-light">Cookie Policy | Privacy</p>
         </div>
       </nav>
     </aside>

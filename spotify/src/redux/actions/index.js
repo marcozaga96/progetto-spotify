@@ -2,9 +2,9 @@ export const SET_SONGS = "SET_SONGS";
 export const SELECT_SONG = "SELECT_SONG";
 export const TOGGLE_LIKE = "TOGGLE_LIKE";
 
-export const setSongs = (songs) => ({
+export const setSongs = (section, songs) => ({
   type: SET_SONGS,
-  payload: songs,
+  payload: { section, songs },
 });
 export const selectSong = (song) => ({
   type: SELECT_SONG,

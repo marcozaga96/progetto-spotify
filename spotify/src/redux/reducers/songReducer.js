@@ -1,7 +1,11 @@
 import { SELECT_SONG, SET_SONGS, TOGGLE_LIKE } from "../actions";
 
 const initialState = {
-  songs: [],
+  songs: {
+    rockSection: [],
+    popSection: [],
+    hipHopSection: [],
+  },
   selectedSong: null,
   likedSongs: [],
 };
@@ -12,8 +16,12 @@ const songsReducer = (state = initialState, action) => {
       console.log("SET_SONGS action payload:", action.payload);
       return {
         ...state,
-        songs: action.payload,
+        songs: {
+          ...state.songs,
+          [action.payload.section]: action.payload.songs,
+        },
       };
+
     case SELECT_SONG:
       return {
         ...state,

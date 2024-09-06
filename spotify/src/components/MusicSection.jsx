@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectSong, setSongs, toggleLike } from "../redux/actions";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const MusicSection = ({ artistName, querySelector }) => {
   const dispatch = useDispatch();
-  const songs = useSelector((state) => state.songs);
+  const songs = useSelector((state) => state.songs[querySelector] || []);
   const likedSongs = useSelector((state) => state.likedSongs);
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const MusicSection = ({ artistName, querySelector }) => {
         if (response.ok) {
           let { data } = await response.json();
           console.log("Fetch data:", data);
-          dispatch(setSongs(data.slice(0, 4)));
+          dispatch(setSongs(querySelector, data.slice(0, 4)));
         } else {
           throw new Error("Error in fetching songs");
         }
@@ -28,7 +29,7 @@ const MusicSection = ({ artistName, querySelector }) => {
     };
 
     fetchSongs();
-  }, [artistName, dispatch]);
+  }, [artistName, dispatch, querySelector]);
 
   const handleSongClick = (song) => {
     dispatch(selectSong(song));
@@ -55,8 +56,15 @@ const MusicSection = ({ artistName, querySelector }) => {
             Track: "{song.title}"<br />
             Artist: {song.artist.name}
           </p>
-          <button onClick={() => handleLikeClick(song.id)}>
-            {likedSongs.includes(song.id) ? "❤️" : "♡"}
+          <button
+            className="bg-secondary "
+            onClick={() => handleLikeClick(song.id)}
+          >
+            {likedSongs.includes(song.id) ? (
+              <i class="bi bi-heart-fill"></i>
+            ) : (
+              <i class="bi bi-heart"></i>
+            )}
           </button>
         </div>
       ))}

@@ -9,7 +9,6 @@ function App() {
     <>
       <MySidebar />
       <Home />
-
       <Player />
     </>
   );
