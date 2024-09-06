@@ -1,3 +1,6 @@
+import React from "react";
+import MusicSection from "../components/MusicSection";
+
 const Home = () => {
   return (
     <main className="col-12 col-md-9 offset-md-3 mainPage">
@@ -17,7 +20,9 @@ const Home = () => {
             <div
               className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
               id="rockSection"
-            ></div>
+            >
+              <MusicSection artistName="queen" querySelector="rockSection" />
+            </div>
           </div>
         </div>
       </div>
@@ -28,7 +33,9 @@ const Home = () => {
             <div
               className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
               id="popSection"
-            ></div>
+            >
+              <MusicSection artistName="katyperry" querySelector="popSection" />
+            </div>
           </div>
         </div>
       </div>
@@ -39,11 +46,14 @@ const Home = () => {
             <div
               className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
               id="hipHopSection"
-            ></div>
+            >
+              <MusicSection artistName="eminem" querySelector="hipHopSection" />
+            </div>
           </div>
         </div>
       </div>
     </main>
   );
 };
+
 export default Home;

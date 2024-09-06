@@ -1,10 +1,30 @@
+import React from "react";
+import { useSelector } from "react-redux";
+
 const Player = () => {
+  const selectedSong = useSelector((state) => state.selectedSong);
+
   return (
     <div className="container-fluid fixed-bottom bg-container pt-1">
       <div className="row h-100">
         <div className="col-lg-10 offset-lg-2">
           <div className="row h-100 flex-column justify-content-center align-items-center">
             <div className="col-6 col-md-4 playerControls">
+              {selectedSong ? (
+                <div className="d-flex flex-column align-items-center">
+                  <img
+                    src={selectedSong.album.cover_medium}
+                    alt="track"
+                    className="img-fluid mb-2"
+                  />
+                  <p>
+                    Track: "{selectedSong.title}"<br />
+                    Artist: {selectedSong.artist.name}
+                  </p>
+                </div>
+              ) : (
+                <p>Seleziona una canzone per ascoltarla</p>
+              )}
               <div className="d-flex">
                 <a href="#">
                   <img src="../shuffle.png" alt="shuffle" />
@@ -32,4 +52,5 @@ const Player = () => {
     </div>
   );
 };
+
 export default Player;
